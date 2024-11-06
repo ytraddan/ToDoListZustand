@@ -23,8 +23,11 @@ function ToDoControls() {
           placeholder="Add a new todo..."
           className="todo-input"
         />
-        <button type="submit" className="btn btn-primary">
-          Add Todo
+        <button 
+          className="add-button" 
+          onClick={handleSubmit}
+        >
+           Add Task
         </button>
       </form>
     </>

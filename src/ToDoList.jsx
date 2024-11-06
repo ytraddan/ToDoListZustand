@@ -8,24 +8,21 @@ export default function ToDoList() {
   return (
     <ul className="todo-list">
       {todos.map((todo) => (
-        <li key={todo.id} className="todo-item">
+        <li key={todo.id} className={`todo-item ${todo.completed ? 'completed' : ''}`}>
           <input
             type="checkbox"
             checked={todo.completed}
             onChange={() => toggleTodo(todo.id)}
             className="todo-checkbox"
           />
-          <span className={`todo-text ${todo.completed ? 'completed' : ''}`}>
-            {todo.text}
-          </span>
-          <div className="todo-controls">
-            <button 
-              onClick={() => deleteTodo(todo.id)}
-              className="btn btn-danger"
-            >
-              Delete
-            </button>
-          </div>
+          <span className="todo-text">{todo.text}</span>
+          <button
+            onClick={() => deleteTodo(todo.id)}
+            className="delete-btn"
+            aria-label="Delete todo"
+          >
+            ×
+          </button>
         </li>
       ))}
     </ul>
